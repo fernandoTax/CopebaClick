@@ -1,0 +1,98 @@
+╔═══════════════════════════════════════════════════════════╗
+║          COMANDOS RÁPIDOS - COPEBA                        ║
+╚═══════════════════════════════════════════════════════════╝
+
+INSTALACIÓN LOCAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+npm install                    # Instalar dependencias
+npm run dev                    # Ejecutar en desarrollo
+npm run build                  # Build para producción
+npm run preview                # Preview del build
+
+
+DESPLIEGUE EN VERCEL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Opción 1: Con GitHub
+────────────────────────────────────────────────────────────
+git init
+git add .
+git commit -m "Proyecto COPEBA inicial"
+git branch -M main
+git remote add origin https://github.com/USUARIO/REPO.git
+git push -u origin main
+
+Luego en https://vercel.com:
+→ Import Project → Seleccionar repo
+→ Add Environment Variables
+→ Deploy
+
+
+Opción 2: CLI de Vercel
+────────────────────────────────────────────────────────────
+npm install -g vercel          # Instalar Vercel CLI
+vercel login                   # Login en Vercel
+vercel                         # Desplegar (primera vez)
+
+# Agregar variables de entorno:
+vercel env add VITE_SUPABASE_URL
+vercel env add VITE_SUPABASE_ANON_KEY
+
+vercel --prod                  # Desplegar a producción
+
+
+VERIFICACIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+npm run typecheck              # Verificar tipos TypeScript
+npm run lint                   # Verificar código con ESLint
+
+
+ESTRUCTURA DE ARCHIVOS NECESARIA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+proyecto/
+├── .env                       # ⚠️ CREAR (ver .env.example)
+├── public/
+│   ├── COPEBA 1.png          # ⚠️ REEMPLAZAR con logo real
+│   └── logocentro.png        # ⚠️ REEMPLAZAR con logo real
+└── ...
+
+
+CONTENIDO DE .env
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VITE_SUPABASE_URL=https://xxxxx.supabase.co
+VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp...
+
+
+CREAR USUARIO ADMIN EN SUPABASE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Dashboard → Authentication → Users → Add User
+2. Copiar el User UID
+3. Dashboard → Table Editor → admin_users → Insert
+   → id: [UUID copiado]
+   → email: admin@copeba.com
+   → full_name: Administrador COPEBA
+
+
+SOLUCIÓN DE PROBLEMAS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Error: Cannot find module
+→ Ejecutar: npm install
+
+# Logos no aparecen
+→ Verificar que public/COPEBA 1.png existe
+→ Verificar que es una imagen real (no archivo de texto)
+
+# Error de Supabase
+→ Verificar variables en .env
+→ Verificar que migraciones están aplicadas
+
+# No puedo hacer login admin
+→ Verificar que el usuario existe en Authentication
+→ Verificar que está agregado en tabla admin_users
+
+
+URLS ÚTILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Supabase:     https://supabase.com/dashboard
+Vercel:       https://vercel.com/dashboard
+Node.js:      https://nodejs.org/

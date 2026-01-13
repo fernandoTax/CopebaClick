@@ -1,0 +1,125 @@
+═══════════════════════════════════════════════════════════
+  SISTEMA DE SOLICITUDES DE PRÉSTAMO - COPEBA
+═══════════════════════════════════════════════════════════
+
+PROBLEMA DETECTADO: Los logos NO están cargados correctamente
+--------------------------------------------------------------
+Los archivos en public/ son solo placeholders de texto (20 bytes).
+Necesitas reemplazarlos con tus archivos de imagen reales.
+
+
+INSTRUCCIONES RÁPIDAS
+═══════════════════════════════════════════════════════════
+
+1. DESCARGAR EL PROYECTO
+   - Descarga el proyecto desde Bolt.new
+   - Descomprime en tu computadora
+
+2. INSTALAR DEPENDENCIAS
+   cd [carpeta-del-proyecto]
+   npm install
+
+3. AGREGAR LOGOS (¡IMPORTANTE!)
+   - Ve a la carpeta public/
+   - REEMPLAZA estos archivos con tus imágenes reales:
+     • COPEBA 1.png  (logo completo con texto)
+     • logocentro.png (logo solo el símbolo)
+
+4. CONFIGURAR SUPABASE
+   - Crea archivo .env en la raíz:
+     
+     VITE_SUPABASE_URL=https://tu-proyecto.supabase.co
+     VITE_SUPABASE_ANON_KEY=tu-clave-publica
+   
+   - Obtén estos valores en Supabase Dashboard → Settings → API
+
+5. CREAR USUARIO ADMIN
+   a) Supabase Dashboard → Authentication → Users → Add User
+      Email: admin@copeba.com
+      Password: [tu contraseña segura]
+   
+   b) Copia el User UID generado
+   
+   c) Table Editor → admin_users → Insert row
+      id: [UUID copiado]
+      email: admin@copeba.com
+      full_name: Administrador COPEBA
+
+6. PROBAR LOCALMENTE
+   npm run dev
+   
+   Abre: http://localhost:5173
+   Verifica que todo funcione
+
+7. SUBIR A VERCEL
+   
+   Opción A - Con GitHub (recomendado):
+   ------------------------------------
+   git init
+   git add .
+   git commit -m "Proyecto COPEBA"
+   git remote add origin [URL-DE-TU-REPO]
+   git push -u origin main
+   
+   Luego en Vercel:
+   - Import desde GitHub
+   - Agregar variables de entorno
+   - Deploy
+   
+   Opción B - CLI de Vercel:
+   --------------------------
+   npm install -g vercel
+   vercel login
+   vercel
+   
+   Configurar variables:
+   vercel env add VITE_SUPABASE_URL
+   vercel env add VITE_SUPABASE_ANON_KEY
+   vercel --prod
+
+
+ARCHIVOS IMPORTANTES INCLUIDOS
+═══════════════════════════════════════════════════════════
+
+✓ INSTRUCCIONES.md  - Guía detallada paso a paso
+✓ README.md         - Documentación técnica
+✓ CHECKLIST.md      - Lista de verificación para despliegue
+✓ .env.example      - Plantilla para variables de entorno
+
+
+COLORES CORPORATIVOS APLICADOS
+═══════════════════════════════════════════════════════════
+
+• Verde: #009900 (Principal - fondos y botones)
+• Azul:  #011c6b (Secundario - acentos)
+• Amarillo: #fef701 (Lema y detalles)
+• Blanco: #ffffff (Texto sobre colores)
+
+
+CARACTERÍSTICAS DEL SISTEMA
+═══════════════════════════════════════════════════════════
+
+Formulario Público:
+• Captura de datos del solicitante
+• Departamentos y municipios de Guatemala
+• Montos y propósitos predefinidos
+• Validación completa
+
+Panel Administrativo:
+• Ver todas las solicitudes
+• Filtrar por estado y buscar
+• Cambiar estados (pendiente/revisión/aprobado/rechazado)
+• Agregar notas internas
+• Estadísticas en tiempo real
+
+
+SOPORTE
+═══════════════════════════════════════════════════════════
+
+Si tienes problemas:
+1. Revisa INSTRUCCIONES.md para detalles
+2. Verifica que los logos sean archivos reales (no texto)
+3. Confirma que las variables de entorno están correctas
+4. Revisa la consola del navegador (F12) para errores
+
+═══════════════════════════════════════════════════════════

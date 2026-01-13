@@ -1,0 +1,51 @@
+╔═══════════════════════════════════════════════════════════╗
+║         ⚠️  LEE ESTO PRIMERO - MUY IMPORTANTE  ⚠️        ║
+╚═══════════════════════════════════════════════════════════╝
+
+LOS LOGOS NO ESTÁN INCLUIDOS EN EL PROYECTO
+═══════════════════════════════════════════════════════════
+
+Los archivos en public/ son solo placeholders de texto.
+Las imágenes NO aparecerán hasta que las reemplaces.
+
+
+SOLUCIÓN RÁPIDA
+═══════════════════════════════════════════════════════════
+
+1. Descarga este proyecto a tu computadora
+
+2. Ve a la carpeta public/
+
+3. Elimina los archivos:
+   - COPEBA 1.png
+   - logocentro.png
+
+4. Copia TUS logos reales con estos nombres:
+   - COPEBA 1.png  (logo completo horizontal)
+   - logocentro.png (logo circular/ícono)
+
+5. Ahora sí instala y ejecuta:
+   npm install
+   npm run dev
+
+
+ARCHIVOS DE AYUDA INCLUIDOS
+═══════════════════════════════════════════════════════════
+
+📄 PROBLEMA-LOGOS.md    - Explicación detallada del problema
+📄 INSTRUCCIONES.md     - Guía completa de instalación
+📄 COMANDOS-RAPIDOS.txt - Comandos esenciales
+📄 CHECKLIST.md         - Lista de verificación
+📄 README.md            - Documentación técnica
+
+
+RECUERDA
+═══════════════════════════════════════════════════════════
+
+✓ Los colores corporativos ya están aplicados
+✓ El sistema funciona perfectamente
+✓ Solo faltan las imágenes de los logos
+✓ Debes crearlas manualmente después de descargar
+
+
+Para más información, lee: PROBLEMA-LOGOS.md
