@@ -390,7 +390,8 @@ export const loanAmounts = [
   'Q 10,001 - Q 20,000',
   'Q 20,001 - Q 50,000',
   'Q 50,001 - Q 100,000',
-  'Más de Q 100,000'
+  'Q 100,001 - Q200,000',
+  'Más de Q 200,000'
 ];
 
 export const loanPurposes = [
@@ -421,3 +422,13 @@ export const contactMethods = [
   'WhatsApp',
   'Ambos'
 ];
+
+export const agencies = [
+  'Agencia Central -Aldea Barraneché Totonicapan',
+  'Agencia La Esperanza - Aldea La Esperanza Totonicapán',
+  'Agencia Chimente -Aldea Chimente Totonicapan',
+  'Agencia Totonicapán -Municipio y Departamento de Totonicapán ',
+  'Agencia San Rafael PC -San Marcos ',
+  'Agencia La Concordia -Aldea La Concordia Totonicapán',
+  'Agencia San Pedro Soloma -Municipio y Deparamento de Huehutenango'
+]

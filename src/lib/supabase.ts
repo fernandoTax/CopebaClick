@@ -10,6 +10,8 @@ if (!supabaseUrl || !supabaseAnonKey) {
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export interface LoanApplication {
+  [x: string]: ReactNode;
+  agenca: ReactNode;
   id: string;
   first_name: string;
   last_name: string;
@@ -24,6 +26,7 @@ export interface LoanApplication {
   notes?: string;
   created_at: string;
   updated_at: string;
+  agencia: string;
 }
 
 export interface AdminUser {

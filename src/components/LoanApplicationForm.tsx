@@ -1,11 +1,11 @@
 import { useState, FormEvent } from 'react';
 import { supabase } from '../lib/supabase';
-import { guatemalaData, loanAmounts, loanPurposes, incomeSources, contactMethods } from '../data/guatemala';
-import { CheckCircle, Loader2,  } from 'lucide-react';
+import { guatemalaData, loanAmounts, loanPurposes, incomeSources, contactMethods, agencies } from '../data/guatemala';
+import { CheckCircle, Loader2, X } from 'lucide-react';
 
 export default function LoanApplicationForm() {
   const [formData, setFormData] = useState({
-    firstName: '',
+     firstName: '',
     lastName: '',
     phone: '',
     department: '',
@@ -13,7 +13,8 @@ export default function LoanApplicationForm() {
     loanAmount: '',
     loanPurpose: '',
     incomeSource: '',
-    contactMethod: ''
+    contactMethod: '',
+    nearestAgency: ''
   });
 
   const [loading, setLoading] = useState(false);
@@ -29,7 +30,7 @@ export default function LoanApplicationForm() {
     setError('');
     setSuccess(false);
 
-    try {
+     try {
       const { error: submitError } = await supabase
         .from('loan_applications')
         .insert([
@@ -42,9 +43,11 @@ export default function LoanApplicationForm() {
             loan_amount: formData.loanAmount,
             loan_purpose: formData.loanPurpose,
             income_source: formData.incomeSource,
-            contact_method: formData.contactMethod
+            contact_method: formData.contactMethod,
+            nearest_agency: formData.nearestAgency || null
           }
         ]);
+
 
       if (submitError) {
         console.error('Supabase error:', submitError);
@@ -63,7 +66,8 @@ export default function LoanApplicationForm() {
         loanAmount: '',
         loanPurpose: '',
         incomeSource: '',
-        contactMethod: ''
+        contactMethod: '',
+        nearestAgency: ''
       });
 
       setTimeout(() => setSuccess(false), 5000);
@@ -227,7 +231,6 @@ export default function LoanApplicationForm() {
                 </select>
               </div>
             </div>
-
             <div>
               <label htmlFor="loanAmount" className="block text-sm font-medium text-gray-700 mb-2">
                 Monto del préstamo *
@@ -281,7 +284,7 @@ export default function LoanApplicationForm() {
                 ))}
               </select>
             </div>
-
+                
             <div>
               <label htmlFor="contactMethod" className="block text-sm font-medium text-gray-700 mb-2">
                 ¿Cómo quiere que le contactemos? *
@@ -299,7 +302,23 @@ export default function LoanApplicationForm() {
                 ))}
               </select>
             </div>
-
+<div>
+              <label htmlFor="nearestAgency" className="block text-sm font-medium text-red-700 mb-2">
+                Agencia más cercana (Opcional)
+              </label>
+              <select
+                id="nearestAgency"
+                value={formData.nearestAgency}
+                onChange={(e) => setFormData(prev => ({ ...prev, nearestAgency: e.target.value }))}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition"
+              >
+                <option value="">Seleccione su agencia más cercana</option>
+                {agencies.map(agency => (
+                  <option key={agency} value={agency}>{agency}</option>
+                ))}
+              </select>
+            </div>
+            
             <button
               type="submit"
               disabled={loading}

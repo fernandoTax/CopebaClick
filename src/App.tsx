@@ -3,6 +3,7 @@ import { supabase } from './lib/supabase';
 import LoanApplicationForm from './components/LoanApplicationForm';
 import AdminLogin from './components/AdminLogin';
 import AdminDashboard from './components/AdminDashboard';
+import Footer from './components/Footer';
 
 function App() {
   const [view, setView] = useState<'form' | 'admin-login' | 'admin-dashboard'>('form');
@@ -82,16 +83,20 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen">
-      {view === 'form' && <LoanApplicationForm />}
+    <div className="flex flex-col min-h-screen">
+      <div className="flex-grow">
+        {view === 'form' && <LoanApplicationForm />}
 
-      {view === 'admin-login' && (
-        <AdminLogin onLoginSuccess={handleLoginSuccess} />
-      )}
+        {view === 'admin-login' && (
+          <AdminLogin onLoginSuccess={handleLoginSuccess} />
+        )}
 
-      {view === 'admin-dashboard' && isAuthenticated && (
-        <AdminDashboard onLogout={handleLogout} />
-      )}
+        {view === 'admin-dashboard' && isAuthenticated && (
+          <AdminDashboard onLogout={handleLogout} />
+        )}
+      </div>
+
+      <Footer />
     </div>
   );
 }

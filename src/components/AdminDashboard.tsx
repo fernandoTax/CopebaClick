@@ -425,6 +425,12 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                   <label className="text-sm font-medium text-gray-500">Método de contacto</label>
                   <p className="text-lg font-semibold text-gray-900 mt-1">{selectedApp.contact_method}</p>
                 </div>
+                 {selectedApp.nearest_agency && (
+                  <div>
+                    <label className="text-sm font-medium text-gray-500">Agencia más cercana</label>
+                    <p className="text-lg font-semibold text-gray-900 mt-1">{selectedApp.nearest_agency}</p>
+                  </div>
+                )}
                 <div>
                   <label className="text-sm font-medium text-gray-500">Fecha de solicitud</label>
                   <p className="text-lg font-semibold text-gray-900 mt-1">
