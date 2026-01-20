@@ -385,17 +385,18 @@ export const guatemalaData: Record<string, string[]> = {
 };
 
 export const loanAmounts = [
-  'Q 1,000 - Q 5,000',
-  'Q 5,001 - Q 10,000',
-  'Q 10,001 - Q 20,000',
-  'Q 20,001 - Q 50,000',
+  'Q 1,000 - Q 50,000',
   'Q 50,001 - Q 100,000',
-  'Q 100,001 - Q200,000',
-  'Más de Q 200,000'
+  'Q 100,001 - Q 200,000',
+  'Q 200,001 - Q 500,000',
+  'Q 500,001 - Q 700,000',
+  'Q 700,001 - Q1,000,000',
+  'Más de Q 1,000,000'
 ];
 
 export const loanPurposes = [
   'Negocio propio',
+   'Terrenos',
   'Educación',
   'Vivienda',
   'Salud',
@@ -424,11 +425,11 @@ export const contactMethods = [
 ];
 
 export const agencies = [
-  'Agencia Central -Aldea Barraneché Totonicapan',
-  'Agencia La Esperanza - Aldea La Esperanza Totonicapán',
-  'Agencia Chimente -Aldea Chimente Totonicapan',
-  'Agencia Totonicapán -Municipio y Departamento de Totonicapán ',
-  'Agencia San Rafael PC -San Marcos ',
-  'Agencia La Concordia -Aldea La Concordia Totonicapán',
-  'Agencia San Pedro Soloma -Municipio y Deparamento de Huehutenango'
+  'Agencia Central - Barraneché Totonicapán',
+  'Agencia La Esperanza -Totonicapán',
+  'Agencia Chimente -Totonicapán',
+  'Agencia Totonicapán - Totonicapán',
+  'Agencia San Rafael Pie de la Cuesta- San Marcos ',
+  'Agencia La Concordia - Totonicapán',
+  'Agencia San Pedro Soloma - Huehuetenango'
 ]
