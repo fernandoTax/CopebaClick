@@ -429,7 +429,7 @@ export const agencies = [
   'Agencia La Esperanza -Totonicapán',
   'Agencia Chimente -Totonicapán',
   'Agencia Totonicapán - Totonicapán',
-  'Agencia San Rafael Pie de la Cuesta- San Marcos ',
+  'Agencia San Rafael Pie de la Cuesta - San Marcos ',
   'Agencia La Concordia - Totonicapán',
   'Agencia San Pedro Soloma - Huehuetenango'
 ]

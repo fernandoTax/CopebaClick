@@ -21,32 +21,32 @@ export default function Footer() {
     {
       name: 'Agencia La Esperanza',
       location: 'Aldea La Esperanza, Totonicapán',
-      phone: '5181-5596'
+      phone: '3137-1426'
     },
     {
       name: 'Agencia Chimente',
       location: 'Aldea Chimente, Totonicapán',
-      phone: '5181-5597'
+      phone: '3958-3326'
     },
     {
       name: 'Agencia Totonicapán',
       location: 'Municipio y Departamento de Totonicapán',
-      phone: '5181-5598'
+      phone: '3180-8494'
     },
     {
       name: 'Agencia San Rafael Pie de la Cuesta',
       location: 'San Marcos',
-      phone: '5181-5599'
+      phone: '3760-7407'
     },
     {
       name: 'Agencia La Concordia',
       location: 'Aldea La Concordia, Totonicapán',
-      phone: '5181-5600'
+      phone: '3866-0666'
     },
     {
       name: 'Agencia San Pedro Soloma',
       location: 'Municipio y Departamento de Huehuetenango',
-      phone: '5181-5601'
+      phone: '4893-0571'
     }
   ];
 
@@ -69,9 +69,12 @@ export default function Footer() {
             />
             <h3 className="text-xl font-bold text-[#f1f5f3]">COPEBA R.L.</h3>
             <p className="text-sm leading-relaxed">
-              Cooperativa de Ahorro y Crédito comprometida con el desarrollo
-              económico y social de nuestras comunidades.
+              Cooperativa de Ahorro y Crédito
             </p>
+            <p className="text-sm leading-relaxed">
+              Promover el desarrollo de sus asociados mediante la prestación de servicios financieros de manera oportuna y de calidad, con equidad de genero y étnica.
+            </p>
+             
           </div>
 
           {/* Agencias */}
@@ -119,7 +122,7 @@ export default function Footer() {
 
             <div className="space-y-4 text-sm">
               <div>
-                <p className="text-xs opacity-70">Teléfono</p>
+                <p className="text-xs opacity-70">PBX</p>
                 <a
                   href="tel:+50279631100"
                   className="font-semibold text-[#f1f5f3] hover:text-[#2fbf71]"
@@ -184,9 +187,10 @@ export default function Footer() {
         </div>
 
         {/* Footer bottom */}
-        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-center md:text-left">
-            © {currentYear} COPEBA R.L. – Todos los derechos reservados.
+        <div className="border-t border-slate-800 mt-12 pt-8">
+        <div className="flex justify-center items-center">
+          <p className="text-sm text-gray-400 text-center">
+            © {currentYear} COPEBA R.L. - Cooperativa de Ahorro y Crédito. Todos los derechos reservados.
           </p>
 
           {/* Botón opcional */}
@@ -200,7 +204,7 @@ export default function Footer() {
           */}
         </div>
       </div>
-
+     </div>
       <style>{`
         .social-btn {
           background: rgba(255,255,255,0.08);

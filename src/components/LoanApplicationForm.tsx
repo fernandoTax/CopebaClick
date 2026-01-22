@@ -1,6 +1,7 @@
 import { useState, FormEvent } from 'react';
 import { supabase } from '../lib/supabase';
 import { PhoneCall } from 'lucide-react';
+  import { useEffect } from 'react';
 import { guatemalaData, loanAmounts, loanPurposes, incomeSources, contactMethods, agencies } from '../data/guatemala';
 import { CheckCircle, Loader2, Shield, Clock, MapPin, MessageCircle } from 'lucide-react';
 
@@ -21,7 +22,27 @@ export default function LoanApplicationForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
-   const [showWhatsApp, setShowWhatsApp] = useState(true);
+  const [showWhatsApp, setShowWhatsApp] = useState(false);
+
+useEffect(() => {
+  const handleScroll = () => {
+    const scrollTop = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+
+    // Ajusta este valor según qué tan cerca del footer lo quieres
+    const offsetFromBottom = 1000;
+
+    if (scrollTop + windowHeight >= documentHeight - offsetFromBottom) {
+      setShowWhatsApp(true);
+    } else {
+      setShowWhatsApp(false);
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  return () => window.removeEventListener('scroll', handleScroll);
+}, []);
 
   const departments = Object.keys(guatemalaData);
   const municipalities = formData.department ? guatemalaData[formData.department] : [];
@@ -377,25 +398,52 @@ export default function LoanApplicationForm() {
       {showWhatsApp && (
   <button
     onClick={() => window.open('https://wa.me/50251815595', '_blank')}
-    className="fixed bottom-6 right-6 bg-[#25D366] hover:bg-[#1EBE5D] text-white p-4 rounded-full shadow-2xl hover:shadow-xl transform hover:scale-110 transition-all duration-300 z-40 group"
     aria-label="Contactar por WhatsApp"
+    className="
+      fixed bottom-6 right-6 z-50
+      bg-[#25D366]
+      text-white
+      p-4
+      rounded-full
+      shadow-[0_8px_30px_rgba(37,211,102,0.45)]
+      hover:bg-[#1EBE5D]
+      hover:shadow-[0_12px_40px_rgba(37,211,102,0.65)]
+      transition-all duration-300 ease-out
+      transform hover:scale-110 active:scale-95
+      group
+    "
   >
-    {/* Icono WhatsApp */}
+    {/* Halo / pulso */}
+    <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-30 animate-ping"></span>
+
+    {/* Icono */}
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 32 32"
-      className="w-7 h-7 fill-current"
+      className="relative w-7 h-7 fill-current"
       aria-hidden="true"
     >
       <path d="M16.002 2.003c-7.73 0-14 6.27-14 14 0 2.467.647 4.876 1.877 6.999L2 30l7.178-1.848A13.9 13.9 0 0 0 16 30c7.73 0 14-6.27 14-14s-6.27-13.997-13.998-13.997zm8.104 19.514c-.34.959-1.685 1.857-2.805 2.105-.767.168-1.774.299-5.776-1.246-5.115-1.99-8.418-7.275-8.674-7.614-.255-.34-2.067-2.752-2.067-5.25 0-2.497 1.318-3.727 1.785-4.24.466-.51.998-.638 1.33-.638.34 0 .68 0 .977.014.314.014.735-.12 1.15.88.425 1.02 1.45 3.528 1.58 3.78.127.255.212.553.042.892-.17.34-.255.553-.51.85-.256.297-.536.663-.765.89-.256.255-.51.536-.22 1.064.297.51 1.33 2.195 2.857 3.556 1.965 1.75 3.63 2.29 4.14 2.545.51.255.807.212 1.107-.128.297-.34 1.276-1.49 1.616-2.002.34-.51.68-.425 1.15-.255.466.17 2.97 1.403 3.477 1.658.51.255.85.382.977.595.128.212.128 1.235-.212 2.195z" />
     </svg>
 
     {/* Tooltip */}
-    <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white text-sm px-3 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-      Chatea con nosotros
+    <span
+      className="
+        absolute right-full mr-3 top-1/2 -translate-y-1/2
+        bg-gray-900 text-white text-sm
+        px-4 py-2 rounded-lg
+        opacity-0 translate-x-2
+        group-hover:opacity-100 group-hover:translate-x-0
+        transition-all duration-300
+        pointer-events-none
+        whitespace-nowrap
+      "
+    >
+      💬 Chatea con nosotros
     </span>
   </button>
 )}
+
     </div>
   );
 }
