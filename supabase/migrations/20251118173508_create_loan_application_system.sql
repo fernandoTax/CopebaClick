@@ -91,6 +91,29 @@ CREATE POLICY "Admins can insert their own profile"
   TO authenticated
   WITH CHECK (auth.uid() = id);
 
+/*
+  # Add DELETE policy for loan applications
+
+  1. Changes
+    - Add DELETE policy for `loan_applications` table
+    - Allows authenticated admin users to delete loan applications
+  
+  2. Security
+    - Only users in `admin_users` table can delete applications
+    - Maintains same security pattern as UPDATE policy
+*/
+
+-- Add DELETE policy for loan applications
+CREATE POLICY "Authenticated admins can delete loan applications"
+  ON loan_applications FOR DELETE
+  TO authenticated
+  USING (
+    EXISTS (
+      SELECT 1 FROM admin_users
+      WHERE admin_users.id = auth.uid()
+    )
+  );
+
 -- Create index for faster queries
 CREATE INDEX IF NOT EXISTS idx_loan_applications_status ON loan_applications(status);
 CREATE INDEX IF NOT EXISTS idx_loan_applications_created_at ON loan_applications(created_at DESC);
