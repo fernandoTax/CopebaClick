@@ -129,7 +129,7 @@ useEffect(() => {
           <div className="px-4 py-4" style={{ backgroundColor: 'hsl(0, 0%, 93%)' }}>
               <div className="flex justify-center">
                       <img 
-                          src="/clik.cope.jpg" 
+                          src="/cop.jpg" 
                           alt="COPEBA CLICK" 
                           className="h-19 object-contain bg-white rounded-2xl overflow-hidden "
                         />
