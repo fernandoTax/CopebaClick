@@ -126,10 +126,10 @@ useEffect(() => {
   >
       <div className="max-w-3xl mx-auto px-4 py-12">
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-t-4" style={{ borderColor: '#047208ff' }}>
-          <div className="px-4 py-4" style={{ backgroundColor: 'rgb(245, 245, 245)' }}>
+          <div className="px-4 py-4" style={{ backgroundColor: 'hsl(0, 0%, 93%)' }}>
               <div className="flex justify-center">
                       <img 
-                          src="/Copebaclick.jpg" 
+                          src="/clik.cope.jpg" 
                           alt="COPEBA CLICK" 
                           className="h-19 object-contain bg-white rounded-2xl overflow-hidden "
                         />

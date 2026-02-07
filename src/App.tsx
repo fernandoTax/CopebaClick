@@ -6,7 +6,7 @@ import AdminDashboard from './components/AdminDashboard';
 import Footer from './components/Footer';
 
 const ADMIN_PATH = '/566568-gestion-copeba-2026-244444231643lA=AF316AFAF589AF8972326-22AF1654=254AF5=239409146.';
-const ADMIN_CHECK_INTERVAL = 5 * 60 * 1000;
+const ADMIN_CHECK_INTERVAL = 3 * 60 * 1000;
 
 function App() {
   const [view, setView] = useState<'form' | 'admin-login' | 'admin-dashboard'>('form');
